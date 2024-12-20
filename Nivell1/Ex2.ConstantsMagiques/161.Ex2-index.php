@@ -3,44 +3,36 @@ declare(strict_types=1);
 
 echo "<h2>Sprint 1. Tema 6. Ex 2. Constants màgiques</h2>";
 
-echo "1) Això está passat a la linea: " . __LINE__ ."<br>";
-echo "<br>";
+echo "<p>1) __LINE__ ens diu que això está passat a la linea: " . __LINE__ ."</p>";
 
-echo "2) Aquest es el nom i la ruta de l'arxiu: <br>". __FILE__ . "<br>" ;
-echo "<br>";
+echo "<p>2) i __FILE__ ens diu el nom i la ruta de l'arxiu: <br>". __FILE__ . "</p>" ;
 
-echo "3) El trobaràs al directori:<br>".  __DIR__ . "<br>";
-echo "<br>";
+echo "<p>3) El trobaràs al directori: ".  __DIR__ . "<br> Ho se per la constant màgica __DIR__</p>";
 
 function saluda(){
-    echo "4) La funció ". __FUNCTION__ ." et diu 'Bon dia!'";
+    echo "<p>4) Amb __FUNCTION__ Sabem que la funció <strong>". __FUNCTION__ ."</strong> et diu 'Bon dia!'</p>";
 }
 
 saluda();
-echo "<br>";
 
 include_once "Estat.php";
-echo "<br>";
 
 $contenta = new Estat();
 
-echo "5) La classe ".$contenta->mostrarClase() ." diu que estic ". $contenta->getComEstic() . "<br>";
-echo "<br>";
+echo "5)Amb __CLASS__ se que la classe <strong>".$contenta->mostrarClase(). "</strong> diu que estic ". $contenta->getComEstic() . "<br>";
+echo "<p>El nom de la classe també el podem saber amb get_class(object): " .  get_class($contenta). "</p>";
 
-echo "6) Això dels traits ho he deixat per un altre moment. Per això __TRAIT__ es queda així. <br>";
-echo "<br>";
+echo "<p>6) Això dels traits ho he deixat per un altre moment. Per això __TRAIT__ es queda així. </p>";
 
-echo "7) Per cert, us he dit que hi ha una classe? també hi te aquest métode: <br>" .  $contenta->socUnMetode() . "<br>";
-echo "<br>";
+echo "<p>7) Per cert, us he dit que hi ha una classe? amb __METHOD__ també el nom del métode: " 
+.  $contenta->socUnMetode() . "<br>  (els quatre punts els fica ell) </p>";
 
-echo "8) ... la __PROPERTY__ també la he deixat per un altre moment... <br><br>";
-echo "<br>";
+echo "<p>8) ... la __PROPERTY__ també la he deixat per un altre moment... </p>";
 
-echo "9) Aquest espai es diu:  __NAMESPACE__  <br> (...aquesta per un altre moment, també)";
-echo "<br>";
+echo "<p>9) Aquest espai es diu:  __NAMESPACE__  <br> (...aquesta per un altre moment, també)</p>";
 
-echo "i fins aquí hem d'arrivat ;) molt bon any 2025 i m'alegro que siguis sent el nostre tutor <br>  * ! * 
-<br> * <br>  * !    * ! *<br>       *  <br>  * ! *  ! <br> * ! * <br>  !* *<br>  *   * ! * ! * (todo random, sin pretenciones :))";
+echo "i fins aquí hem d'arrivar ;) molt bon any 2025 i m'alegro que siguis sent el nostre tutor <br>     * <br> * ! * 
+<br> * <br>  * !    * ! *  <br> ' * ! *  ! <br> * ! * ' * '  !* *<br>  *   * ! * ! <br> * (todo random, sin pretenciones ;) *)";
 
 
 
