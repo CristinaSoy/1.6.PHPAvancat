@@ -2,7 +2,7 @@
 declare(strict_types=1);
 include_once "Persona.php";
 
-$persona1 = new Persona("Clara");
+$persona1 = new Persona("Clara Campoamor");
 
 // 3) creo propiedades dinámicas __set($propiedad, $valor)
 $persona1-> nacio = "en 1888";
@@ -18,10 +18,10 @@ echo $persona1->matrimonio;
 echo $persona1->darReconocimientoEnVida("Premio Sant Jordi");
 
 // 6) __toString
-echo $persona1->__toString();
+echo $persona1;
 
 // 7) Trato un objeto como una función __invoke()
-echo $persona1(1000000000);
+echo $persona1();
 
 // 8) __unset
 unset($persona1->sufrio);

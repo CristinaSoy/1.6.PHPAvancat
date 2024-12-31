@@ -17,7 +17,7 @@ class Persona {
         echo "<p>Has añadido a la vida de $this->nombre que $propiedad  $valor </p>";
     }
 
-    //4) Métode màgic __get: permet accedir a les propietats creades de forma dinámica per a cada objecte
+    //4) Métode màgic __get: per accedir a propietats creades de forma dinámica per a cada objecte
     public function __get(string $esdeveniment) : string {
         return $this->vida[$esdeveniment] ?? "<p>El $esdeveniment no figura en la vida de $this->nombre </p>";
 
@@ -25,18 +25,23 @@ class Persona {
 
     //5) Método mágico __call()
     public function __call(string $metodo, array $arrayArgumentos) : string {
-        return "<p>No se le puede otorgar el ". $arrayArgumentos[0] . 
-            " porque ya no es posible $metodo, <br>¡haberlo pensado antes!</p>";
+        return "<p>El método $metodo no existe </p>";
     }
 
-    //6)metodo magico __toString()
+    //6) Método magico __toString()
     public function __toString() : string {
-        return "<p>Es $this->nombre Campoamor</p>";
+        $biografia = $this->nombre;
+        if(!empty($this->vida)) {
+            foreach($this->vida as $evento => $valor) {
+                $biografia .= " $evento $valor,";
+           }
+        }
+    return "<p>$biografia </p>";
     }
 
     // 7)metodo magico __invoke() Se ejecuta cuando un objeto es invocado como una función.
-    public function __invoke(int $numero) : string {
-        return "<p>La función de $this->nombre transformó la vida de $numero mujeres y hombres</p>";
+    public function __invoke() : string {
+        return "<p>Eventos importantes en la vida de $this->nombre: </p>" . implode(", ", $this->vida);
     }
     
     //8) __unset se activa cuando se usa unset() 
